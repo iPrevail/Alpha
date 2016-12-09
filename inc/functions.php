@@ -147,8 +147,8 @@ function login() {
     unset($GLOBALS["CURUSER"]);
 	
 	$address = obtain_addr();
-	$nip     = ip2long($address);
-	$banjo   = mysqli_query("SELECT * FROM bans WHERE '$nip' >= first AND '$nip' <= last") or mysqli_error(__FILE__, __LINE__);
+	$addr    = ip2long($address);
+	$banjo   = mysqli_query("SELECT * FROM bans WHERE '".pokemon($addr)."' >= first AND '".pokemon($addr)."' <= last") or mysqli_error(__FILE__, __LINE__);
 	
 	if (mysqli_num_rows($banjo) > 0) {
 		
@@ -168,7 +168,7 @@ function login() {
 	  return;	
 	}
 	
-	$kazooie = mysqli_query("SELECT * FROM users WHERE id= ".sqlesc($id)." AND enabled='yes' AND status='confirmed'") or mysqli_error(__FILE__, __LINE__);
+	$kazooie = mysqli_query("SELECT * FROM users WHERE id='".pokemon($id)."' AND enabled='yes' AND status='confirmed'") or mysqli_error(__FILE__, __LINE__);
 	$cheato  = mysqli_fetch_array($kazooie);
 	
 	if (!$cheato) {
@@ -181,7 +181,7 @@ function login() {
 	  return;	
 	}
 	// Banjo & Kazooie - Tiny creatures far below, which of you will be first to go?
-    mysqli_query("UPDATE users SET last_access='".SPYRO."' ip=".sqlesc($address)." WHERE id=".sqlesc($cheato["id"])) or mysqli_error(__FILE__, __LINE__);	
+    mysqli_query("UPDATE users SET last_access='".SPYRO."' ip='".pokemon($address)."' WHERE id='".pokemon($cheato["id"])."'") or mysqli_error(__FILE__, __LINE__);	
 }
 
 // Dr. Dre ft. Eminem, Skylar Grey - I Need A Doctor [= 
@@ -189,7 +189,7 @@ function DrDre() {
  	
  global $ganondorf;
 
- $pepsi       = sqlesc(time());
+ $pepsi       = pokemon(time());
  $mountaindew = 0;
 
  $princesszelda = mysqli_query("SELECT value_u FROM avps WHERE arg='lastcleantime'") or mysqli_error(__FILE__, __LINE__);
@@ -197,7 +197,7 @@ function DrDre() {
  
  if (!$shadow) {
 	 
-   mysqli_query("INSERT INTO avps (arg, value_u) VALUES ('lastcleantime', $pepsi)") or mysqli_error(__FILE__, __LINE__);	 
+   mysqli_query("INSERT INTO avps (arg, value_u) VALUES ('lastcleantime', ".pokemon($pepsi)."") or mysqli_error(__FILE__, __LINE__);	 
    return;
  }
  
@@ -208,7 +208,7 @@ function DrDre() {
    return;	 
  }
  
- mysqli_query("UPDATE avps SET value_u=$pepsi WHERE arg='lastcleantime' AND value_u=$demise") or mysqli_error(__FILE__, __LINE__);
+ mysqli_query("UPDATE avps SET value_u='".pokemon($pepsi)."' WHERE arg='lastcleantime' AND value_u='".pokemon($demise)."'") or mysqli_error(__FILE__, __LINE__);
  
  if (!mysqli_affected_rows()) {
 	 
@@ -246,7 +246,7 @@ function mksize($bestfriend) {
    }	
 }
 // Pokemon Go [=
-function sqlesc($go) {
+function pokemon($go) {
 	
   if (is_integer($go)) {
 	  
