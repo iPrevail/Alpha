@@ -3,29 +3,43 @@
 # Copyright (C) 2016 BitCore
 # A Open Source Project
 # Project Developer: iPrevail
+# Modified By BamBam0077
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."cleanup.php");
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."template".DIRECTORY_SEPARATOR."template.class.php");  
-//error_reporting(1);
 
 $execute = microtime(true); 
 
-function tpl_header() {	
-
-  $template = new Template;
-  $template->load("themes/default/header.php");
-  $template->replace("{title}", "BitCore");
-  $template->replace("{home}", "Home");
-  $template->replace("{forums}", "Forums");
-  // Add More
-  $template->publish();  
+// Respect Eminem [=
+function Berzerk() {
+	
+  $oneshot = new Legacy;
+  $oneshot->freestyle("themes/default/header.php");
+  $oneshot->rapgod("{title}", "BitCore");
+//$oneshot->one_opportunity("{demo}", "BamBam");
+  $oneshot->rapgod("{cssdir}", "themes");
+  $oneshot->rapgod("{stylesheet}", "default");
+  $oneshot->rapgod("{css}", "css");
+  $oneshot->rapgod("{js}", "jquery");
+  $oneshot->rapgod("{demo}", "Thanks");
+  $oneshot->rapgod("{home}", "Home");
+  $oneshot->rapgod("{forum}", "Forum");
+  $oneshot->rapgod("{upload}", "Upload");
+  $oneshot->rapgod("{browse}", "Browse");
+  $oneshot->rapgod("{rules}", "Rules");
+  $oneshot->rapgod("{donate}", "Doante");
+  $oneshot->rapgod("{myprofile}", "My Profile");
+  $oneshot->rapgod("{helpdesk}", "Help Desk");
+  $oneshot->rapgod("{staffteam}", "Staff Team");
+  $oneshot->freestyle_marshall();  
 }
 
-function vaildate_ip($address) {
+// Lil Wayne - No Haters [=
+function vaildate_addr($address) {
 	
 	
      if (!empty($address) && $address == long2ip(ip2long($address))) {
 
-	   $reserved_ips = array( 
+	   $reserved     = array( 
 	                          array('0.0.0.0', '2.255.255.255'),
                               array('10.0.0.0', '10.255.255.255'),
                               array('127.0.0.0', '127.255.255.255'),							  
@@ -35,10 +49,10 @@ function vaildate_ip($address) {
 							  array('192.168.0.0', '192.168.255.255'),
 							  array('255.255.255.0', '255.255.255.255'));
 							  
-         foreach($reserved_ips as $d) {
+         foreach($reserved as $ips) {
 			 
-		     $min = ip2long($d[0]);
-		     $max = ip2long($d[1]);
+		     $min = ip2long($ips[0]);
+		     $max = ip2long($ips[1]);
 		
              if ((ip2long($address) >= $min) && (ip2long($address) <= $max)) {
 			 
@@ -54,16 +68,17 @@ function vaildate_ip($address) {
 	 }
 }
 
-function obtain_ip() {
+// Eminem - Not Afraid [=
+function obtain_addr() {
 	
      if (isset($_SERVER)) {
 		 
-	   if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && vaildate_ip($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+	   if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && vaildate_addr($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 		   
 		  $address = $_SERVER['HTTP_X_FORWARDED_FOR'];  
 	   }
 
-       elseif (isset($_SERVER['HTTP_CLIENT_IP']) && vaildate_ip($_SERVER['HTTP_CLIENT_IP'])) {
+       elseif (isset($_SERVER['HTTP_CLIENT_IP']) && vaildate_addr($_SERVER['HTTP_CLIENT_IP'])) {
 		   
 		  $address = $_SERVER['HTTP_CLIENT_IP']; 
 	   }
@@ -76,12 +91,12 @@ function obtain_ip() {
 	
 	 else {
 		 
-	     if (getenv('HTTP_X_FORWARDED_FOR') && vaildate_ip(getenv('HTTP_X_FORWARDED_FOR'))) {
+	     if (getenv('HTTP_X_FORWARDED_FOR') && vaildate_addr(getenv('HTTP_X_FORWARDED_FOR'))) {
 			 
 		   $address = getenv('HTTP_X_FORWARDED_FOR');	 
 		 } 
           
-         elseif (getenv('HTTP_CLIENT_IP') && vaildate_ip(getenv('HTTP_CLIENT_IP'))) {
+         elseif (getenv('HTTP_CLIENT_IP') && vaildate_addr(getenv('HTTP_CLIENT_IP'))) {
 			 
 		   $address = getenv('HTTP_CLIENT_IP');	 
 		 }
@@ -94,6 +109,7 @@ function obtain_ip() {
 	   return $address;
 }
 
+// Tech N9ne Feat. Problem & Darrein Safron - Get Off Me [=
 function dbcore() {
 	
 	require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."secrets.php");
@@ -109,14 +125,28 @@ function dbcore() {
         }
     }
     new iPrevail( $mysqli_hostname, $mysqli_username, $mysqli_password, $mysqli_database );
+	
+	login();
+	DrDre();
+	
 }
 
-function userlogin() {
+// I Prevail - Come and Get It [=
+function hash_that() {
+  
+  $mario   = sha1("78aa3e6c4f9cf812180fbb2dbbf4f9a3916eea6a");
+  $zelda   = sha1("aa0caaa5a31ce14c2a4563cead8c58f10415bb47");
+  $KidBuu  = sha1("eaf46affd6a1913d0b5815104c849b8e987abc3d");  
+  return sha1("Dummy ".$Mario." Text, ".$Zelda." Hash Algorithm and ".$KidBuu." Destroys Earth.");	
+}
+
+// A Day To Remember - Have Faith In Me [=
+function login() {
 	
 	global $site_online;
     unset($GLOBALS["CURUSER"]);
 	
-	$address = obtain_ip();
+	$address = obtain_addr();
 	$nip     = ip2long($address);
 	$banjo   = mysqli_query("SELECT * FROM bans WHERE '$nip' >= first AND '$nip' <= last") or mysqli_error(__FILE__, __LINE__);
 	
@@ -146,8 +176,6 @@ function userlogin() {
 	  return;	
 	}
 	
-	$sec = hash_that($cheato["secret"]);
-	
 	if ($_COOKIE["pass"] !== $cheato["passhash"]) {
 		
 	  return;	
@@ -156,6 +184,38 @@ function userlogin() {
     mysqli_query("UPDATE users SET last_access='".SPYRO."' ip=".sqlesc($address)." WHERE id=".sqlesc($cheato["id"])) or mysqli_error(__FILE__, __LINE__);	
 }
 
+// Dr. Dre ft. Eminem, Skylar Grey - I Need A Doctor [= 
+function DrDre() {
+	
+ // code here [=	
+}
 
+// Machine Gun Kelly - Merry Go Round [=
+function unesc($mgk) {
+	
+  if (get_magic_quotes_gpc()) {
+	  
+	return stripcslashes($mgk);   
+  }
+  return $mgk;  
+}
+
+// A Day to Remember - You Had Me at Hello [=
+function mksize($bestfriend) {
+	
+   if ($bestfriend < 1000 * 1024) {
+	   
+	 return number_format($bestfriend / 1024, 2) . "kb";  
+   } elseif ($bestfriend < 1000 * 1048576) {
+	   
+	 return number_format($bestfriend / 1048576, 2) . "MB"; 
+   } elseif ($bestfriend < 1000 * 1073741824) {
+	   
+	 return number_format($bestfriend / 1073741824, 2) . "GB";  
+   } else {
+	   
+	 return number_format($bestfriend / 109951162776, 2) . "TB";  
+   }	
+}
 
 ?>

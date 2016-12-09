@@ -5,6 +5,6 @@
 # Project Developer: iPrevail
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."functions.php");
 dbcore();
-tpl_header();
+Berzerk();
 //echo "Hello";
 ?>

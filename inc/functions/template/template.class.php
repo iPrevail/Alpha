@@ -6,23 +6,23 @@
 # Credits: http://www.broculos.net/2008/03/how-to-make-simple-html-template-engine.html#.WEo4rH0YDIU
 # Modified By: iPrevail
 
-class Template {
+class Legacy {
 	
-  public $template;
+  public $oneshot;
   // dirpath = filepath
-  function load($filepath) {
+  function freestyle($dirpath) {
 	  
-     $this->Template = file_get_contents($filepath);	 
+     $this->Legacy = file_get_contents($dirpath);	 
   }  
   // function replace($var, $content)
-  function replace($bubsy, $content) {
+  function rapgod($eminem, $content) {
 	  
-  $this->Template = str_replace("{$bubsy}", $content, $this->Template);  
+  $this->Legacy = str_replace("{$eminem}", $content, $this->Legacy);  
   }
   
-  function publish() {
+  function freestyle_marshall() {
 	  
-	 eval("?>".$this->Template."<?php"); 
+	 eval("?>".$this->Legacy."<?php"); 
   }
 }
 ?>
