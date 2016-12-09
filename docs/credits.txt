@@ -1,0 +1,15 @@
+We would like to thank the following:
+
+> FreeTSP
+> U232
+> TBDev
+> TorrentTrader
+> TorrentStrike
+> Open Source Projects
+> Development Forums
+> MYBB
+> PHPBB
+> Family & Friends
+> Dedicated Programmers
+
+This Alpha is just a project I wanted to get the ball rolling for those that might consider using this as a engine.
