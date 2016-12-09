@@ -189,7 +189,7 @@ function DrDre() {
  	
  global $ganondorf;
 
- $pepsi       = time();
+ $pepsi       = sqlesc(time());
  $mountaindew = 0;
 
  $princesszelda = mysqli_query("SELECT value_u FROM avps WHERE arg='lastcleantime'") or mysqli_error(__FILE__, __LINE__);
@@ -244,6 +244,16 @@ function mksize($bestfriend) {
 	   
 	 return number_format($bestfriend / 109951162776, 2) . "TB";  
    }	
+}
+// Pokemon Go [=
+function sqlesc($go) {
+	
+  if (is_integer($go)) {
+	  
+	 return (int)$go; 
+  }
+
+  return sprintf('\'%s\'', mysqli_real_escape_string($go));  
 }
 
 ?>
