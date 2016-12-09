@@ -3,7 +3,8 @@
 # Copyright (C) 2016 BitCore
 # A Open Source Project
 # Project Developer: iPrevail
-# Last Modified By iPrevail
+# Last Modified By iPrevail, KidBuu
+// Tech N9ne ft. Eminem & Krizz Kaliko - Speedom [=
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."cleanup.php");
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."template".DIRECTORY_SEPARATOR."template.class.php");  
 
@@ -218,6 +219,14 @@ function DrDre() {
  startmopping();
 }
 
+// Tech N9ne ft E-40 & Krizz Kaliko - No K  [=
+function std_error($heading, $english) {
+	
+   echo Berzerk(); /* stdhead() */	
+   echo std_msg($heading, $english);
+   echo Footer();   
+}
+
 // Machine Gun Kelly - Merry Go Round [=
 function unesc($mgk) {
 	
@@ -229,7 +238,7 @@ function unesc($mgk) {
 }
 
 // A Day to Remember - You Had Me at Hello [=
-function mksize($bestfriend) {
+function size($bestfriend) {
 	
    if ($bestfriend < 1000 * 1024) {
 	   
@@ -245,15 +254,35 @@ function mksize($bestfriend) {
 	 return number_format($bestfriend / 109951162776, 2) . "TB";  
    }	
 }
+
 // Pokemon Go [=
 function pokemon($go) {
 	
-  if (is_integer($go)) {
-	  
-	 return (int)$go; 
-  }
+  return sprintf(mysqli_real_escape_string($go));  
+}
 
-  return sprintf('\'%s\'', mysqli_real_escape_string($go));  
+// Tech N9ne ft Kiddo A.I. - Til Im Gone [=
+function Cypher($d12 = '') {
+
+ //global $proof; Rest In Peace Mate [=
+ if (!isset($xzibit['cms_user']) OR empty($xzibit['cms_user']['cypher'])) {
+	 
+   if(!file_exists("languages".DIRECTORY_SEPARATOR."en".DIRECTORY_SEPARATOR."{$d12}.php")) {
+	   
+	 std_error("Err!, Can\'t find language files.");  
+   }
+     require_once("languages".DIRECTORY_SEPARATOR."en".DIRECTORY_SEPARATOR."{$d12}.php");
+     return $proof;
+ }
+   if (!file_exists("languages".DIRECTORY_SEPARATOR."en".DIRECTORY_SEPARATOR."{$d12}.php")) {
+	   
+     std_error("Err!, Can\'t find the language files.");	   
+   } else {
+	   
+	 require_once("languages".DIRECTORY_SEPARATOR."en".DIRECTORY_SEPARATOR."{$d12}.php");  
+   }
+   
+   return $proof;   
 }
 
 ?>

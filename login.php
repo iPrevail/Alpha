@@ -5,6 +5,8 @@
 # Project Developer: iPrevail
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."inc".DIRECTORY_SEPARATOR."functions.php");
 dbcore();
-Berzerk();
-//echo "Hello";
+
+$proof = array_merge(Cypher('global'));
+
+echo "{$proof['login_user_name']}";
 ?>
