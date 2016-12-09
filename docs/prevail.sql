@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2016 at 11:21 AM
+-- Generation Time: Dec 09, 2016 at 12:04 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `prevail`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `avps`
+--
+
+CREATE TABLE IF NOT EXISTS `avps` (
+  `arg` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `value_s` text COLLATE utf8_unicode_ci NOT NULL,
+  `value_i` int(11) NOT NULL DEFAULT '0',
+  `value_u` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`arg`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
