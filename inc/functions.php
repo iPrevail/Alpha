@@ -197,7 +197,7 @@ function DrDre() {
  
  if (!$shadow) {
 	 
-   mysqli_query("INSERT INTO avps (arg, value_u) VALUES ('lastcleantime', ".pokemon($pepsi)."") or mysqli_error(__FILE__, __LINE__);	 
+   mysqli_query("INSERT INTO avps (arg, value_u) VALUES ('lastcleantime', ".pokemon($pepsi).")") or mysqli_error(__FILE__, __LINE__);	 
    return;
  }
  
