@@ -3,7 +3,7 @@
 # Copyright (C) 2016 BitCore
 # A Open Source Project
 # Project Developer: iPrevail
-# Modified By iPrevail
+# Last Modified By iPrevail
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."cleanup.php");
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."template".DIRECTORY_SEPARATOR."template.class.php");  
 
