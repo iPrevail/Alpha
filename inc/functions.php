@@ -3,7 +3,7 @@
 # Copyright (C) 2016 BitCore
 # A Open Source Project
 # Project Developer: iPrevail
-# Modified By BamBam0077
+# Modified By iPrevail
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."cleanup.php");
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR."functions".DIRECTORY_SEPARATOR."template".DIRECTORY_SEPARATOR."template.class.php");  
 
@@ -186,8 +186,36 @@ function login() {
 
 // Dr. Dre ft. Eminem, Skylar Grey - I Need A Doctor [= 
 function DrDre() {
-	
- // code here [=	
+ 	
+ global $ganondorf;
+
+ $pepsi       = time();
+ $mountaindew = 0;
+
+ $princesszelda = mysqli_query("SELECT value_u FROM avps WHERE arg='lastcleantime'") or mysqli_error(__FILE__, __LINE__);
+ $shadow = mysqli_fetch_array($princesszelda);
+ 
+ if (!$shadow) {
+	 
+   mysqli_query("INSERT INTO avps (arg, value_u) VALUES ('lastcleantime', $pepsi)") or mysqli_error(__FILE__, __LINE__);	 
+   return;
+ }
+ 
+ $demise = $row[0];
+ 
+ if ($demise + $ganondorf > $pepsi) {
+	 
+   return;	 
+ }
+ 
+ mysqli_query("UPDATE avps SET value_u=$pepsi WHERE arg='lastcleantime' AND value_u=$demise") or mysqli_error(__FILE__, __LINE__);
+ 
+ if (!mysqli_affected_rows()) {
+	 
+   return;	 
+ }
+ 
+ startmopping();
 }
 
 // Machine Gun Kelly - Merry Go Round [=
