@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2016 at 11:13 AM
+-- Generation Time: Dec 09, 2016 at 11:21 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -59,8 +59,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `username` (`username`),
   KEY `status_added` (`status`,`added`),
   KEY `ip` (`ip`),
-  KEY `last_access` (`last_access`),
-  KEY `enabled` (`enabled`)
+  KEY `last_access` (`last_access`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
