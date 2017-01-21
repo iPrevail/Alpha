@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `cms_word_filter`;
 CREATE TABLE `cms_word_filter` (
 
      `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-     `added` datetime NOT NULL default '0000-00-00 00:00:00',
+     `date_added` datetime NOT NULL default '0000-00-00 00:00:00',
      `badword` varchar(100) NOT NULL default '',
      `replacement` varchar(100) NOT NULL default '',
 	 
@@ -67,11 +67,11 @@ CREATE TABLE `cms_bans` (
      `added` datetime NOT NULL default '0000-00-00 00:00:00',
      `addedby` int(10) unsigned NOT NULL default '0',
      `reason` varchar(255) collate utf8_unicode_ci NOT NULL default '',
-     `fip` int(11) default NULL,
-     `lip` int(11) default NULL,	 
+     `first_addr` int(11) default NULL,
+     `last_addr` int(11) default NULL,	 
 
      PRIMARY KEY (`id`),
-     KEY `first_last` (`fip`, `lip`)	 
+     KEY `first_last` (`first_addr`, `last_addr`)	 
   
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci; 
 
@@ -117,4 +117,86 @@ CREATE TABLE `cms_files` (
 	 KEY `cloud` (`cloud`)
 	 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
- 
+
+DROP TABLE IF EXISTS `cms_images`;
+CREATE TABLE `cms_images` (
+
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+     `username` varchar(120) NOT NULL default '',
+	 `addr` varchar(64) collate utf8_unicode_ci NOT NULL,
+     `filename` varchar(255) collate utf8_unicode_ci NOT NULL default '',
+     `date_uploaded` datetime NOT NULL default '0000-00-00 00:00:00',
+     `visitor ` enum('yes', 'no') NOT NULL default 'no',
+     `removed` enum('yes', 'no') NOT NULL default 'no',
+	 
+     PRIMARY KEY (`id`)
+	 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- cms_imgs_func --
+
+DROP TABLE IF EXISTS `cms_addr_log`;
+CREATE TABLE `cms_addr_log` (
+
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	 `addr` varchar(64) collate utf8_unicode_ci NOT NULL,
+	 `date_time` datetime NOT NULL default '0000-00-00 00:00:00',
+	 `text` text collate utf8_unicode_ci,
+	 
+	 PRIMARY KEY (`id`),
+	 KEY `data_time` (`date_time`)
+	 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `cms_staff_log`;
+CREATE TABLE `cms_staff_log` (
+
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	 `username` varchar(120) NOT NULL default '',
+	 `addr` varchar(64) collate utf8_unicode_ci NOT NULL,
+	 `date_time` datetime NOT NULL default '0000-00-00 00:00:00',
+	 `text` text collate utf8_unicode_ci,
+	 
+	 PRIMARY KEY (`id),
+	 KEY `date_time` (`date_time`)
+
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `cms_reputation_mod`;
+CREATE TABLE `cms_reputation_mod` (
+
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+     	 
+
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `cms_sessions`;
+CREATE TABLE `cms_sessions` (
+
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+     `session_id` varchar(32) NOT NULL default '',
+	 `addr` varchar(64) collate utf8_unicode_ci NOT NULL,
+     `date_time` datetime NOT NULL default '00-0000-00-00 00:00:00',
+     `location` varchar(255) NOT NULL default '',
+     `agent` varchar(255) NOT NULL default '',
+
+     PRIMARY KEY (`id`),
+     KEY `addr` (`addr`),
+	 KEY `location` (`location`),
+     KEY `date_time` (`date_time`) 	 
+	 
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS `cms_spider_mod`;
+CREATE TABLE `cms_spider_mod` (
+
+     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	 `name` varchar(255) NOT NULL default '',
+	 `cmslang` varchar(20) NOT NULL default '',
+	 `member_group` varchar(50) NOT NULL default '',
+	 `agent` varchar(255) NOT NULL default '',
+	 `last_access` datetime NOT NULL default '0000-00-00 00:00:00',
+	 
+	 PRIMARY KEY (`id`)
+
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
