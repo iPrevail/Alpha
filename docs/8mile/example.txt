@@ -1,0 +1,35 @@
+<?php
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// I don't hope this works out I just simply accept it, like a christmas present, even though you don't want it, like power to take over the world,
+// it has already been done, they died, so no points for you, I am trying to use karma in a good way but when I roll them dices it saids I am doing bad,
+// what it is right and wrong, I don't understand, where did I come from, which animal are you, because you belong in a zoo with a tyga, palming them off,
+// treating everybody like fedx, sorry just a figure of speech,
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+function cms_something_unique() {
+     
+     # return your mum
+	 if($cms_something_text):
+	 
+	 elseif():
+	 
+	 endif;
+	 
+	 # returned your mum
+} 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// goosebumps, no bumps, head lice, your not that nice, oh shit look a human with body parts, that's wicked, all that blood no remorse,
+// please stop snoring, i understand this is boring or might be boring but somethings are worth your time, i suggest you stop thinking,
+// shit I forget what I was gonna put, my mind froze in like a slow method approach, no guns, no mum, no pet dinosaur till I was ten,
+// hitler you understand that this is just to mimic at you right?, clown who kills then kills themself?, I did maybe once or twice does it matter,
+// fresh air, like a yellow brick road, covered in snow, but enough to smoke a blunt, so you can be just blunt as fuck, we will never see eye to eye,
+// we will never shake hands, so before all this ends, can we do a virtual hand shake, i'll spit on my palm and wipe it your face, 
+// no jokes allow you have to be serious else people don't believe you really, yep ask u232, damn, glad you exist because this has been fun,
+// if I have failed, I am sorry I am not a professional, self taught does that count for something, like I understand rap and code doesn't mix like a JD and cola,
+// but please understand this is me just being nice, I want to work with as many engines as possible, I get over excited and always distroy the adventure,
+// Henry the III will save you this process, if you think you can use shakesphere or mcbeth, try it see if works, you have entire life ahead of you,
+// thanks for not killing me, I guess sorta, I have always been a fan but not a true soldier, I am very disappointed in myself to be honest,
+// I did it to teach freestyle hope that is ok, i won't screw this up like last time i guess, please lord save my soul, there is still no bread on the table,
+// I understand that code & rap make no money i understand that is fine with me really, donations are accepted but like wise it will be free just like you,
+// Gizmo if your up there on that moon looking down, I miss you buddy, you were always my favourite pet, I am sorry I over fed you, shiiit, 
+
+ 
